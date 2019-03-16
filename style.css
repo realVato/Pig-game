@@ -16,7 +16,7 @@
 }
 
 body {
-    background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url(back.jpg);
+    background-image: linear-gradient(rgba(0, 114, 245, 0.4), rgba(253, 253, 253, 0.4)), url(apex.png);
     background-size: cover;
     background-position: center;
     font-family: Lato;

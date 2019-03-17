@@ -27,4 +27,26 @@ var diceDOM = document.querySelector('.dice');
 diceDOM.style.display = 'block';
 diceDOM.src = 'dice-' + dice + '.png';
 
+
+    //3. Add result to score
+if (dice > 1) {
+    // Add number to current score
+    roundScore += dice;
+    
+} else if (activePlayer === 0) {
+    // Reduce score to 0
+    document.querySelector('#current-' + activePlayer).textContent = roundScore = 0;
+    // Change active player
+    document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+    activePlayer = 1;
+    document.querySelector('.player-' + activePlayer + '-panel').classList.add('active');
+    
+} else {
+    activePlayer = 0;
+}
+
+
+
+document.querySelector('#current-' + activePlayer).textContent = roundScore;
+
 });

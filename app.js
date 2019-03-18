@@ -11,16 +11,7 @@ GAME RULES:
 
 var score, roundScore, activePlayer;
 
-score = [0, 0];
-roundScore = 0;
-activePlayer = 0;
-
-document.getElementById('score-0').textContent = '0';
-document.getElementById('score-1').textContent = '0';
-document.getElementById('current-0').textContent = '0';
-document.getElementById('current-1').textContent = '0';
-
-document.querySelector('.dice').style.display = 'none';
+init();
 
 // **********************
 // *    BUTTON ROLL     *
@@ -43,7 +34,7 @@ if (dice > 1) {
     nextPlayer();
 }
 
-document.querySelector('#current-' + activePlayer).textContent = roundScore;
+document.getElementById('current-' + activePlayer).textContent = roundScore;
 });
 
 // **********************
@@ -54,19 +45,45 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
 
 // 1. Transfer round score to the general score
 score[activePlayer] += roundScore;
-document.querySelector('#score-' + activePlayer).textContent = score[activePlayer];
-nextPlayer();
+document.getElementById('score-' + activePlayer).textContent = score[activePlayer];
+if (score[activePlayer] >= 20) {
+    document.getElementById('name-' + activePlayer).textContent = 'Winner!';
+    diceDisplay();
+    document.querySelector('.btn-roll').style.display = 'none';
+    document.querySelector('.btn-hold').style.display = 'none';
 
+} else {
+    nextPlayer();
+}
 
 });
 
 
 function nextPlayer() {
 
-    document.querySelector('#current-' + activePlayer).textContent = roundScore = 0;
+    document.getElementById('current-' + activePlayer).textContent = roundScore = 0;
     document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
     activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
     document.querySelector('.player-' + activePlayer + '-panel').classList.toggle('active');
+    diceDisplay();
+
+}
+
+function init() {
+
+    score = [0, 0];
+    roundScore = 0;
+    activePlayer = 0;
+
+    document.getElementById('score-0').textContent = '0';
+    document.getElementById('score-1').textContent = '0';
+    document.getElementById('current-0').textContent = '0';
+    document.getElementById('current-1').textContent = '0';
+    diceDisplay();
+}
+
+function diceDisplay() {
+
     document.querySelector('.dice').style.display = 'none';
 
 }

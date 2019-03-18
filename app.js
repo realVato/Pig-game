@@ -46,7 +46,7 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
 // 1. Transfer round score to the general score
 score[activePlayer] += roundScore;
 document.getElementById('score-' + activePlayer).textContent = score[activePlayer];
-if (score[activePlayer] >= 20) {
+if (score[activePlayer] >= 100) {
     document.getElementById('name-' + activePlayer).textContent = 'Winner!';
     diceDisplay();
     document.querySelector('.btn-roll').style.display = 'none';

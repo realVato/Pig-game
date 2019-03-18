@@ -40,10 +40,7 @@ diceDOM.src = 'dice-' + dice + '.png';
 if (dice > 1) {
     roundScore += dice;
 } else {
-    document.querySelector('#current-' + activePlayer).textContent = roundScore = 0;
-    document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
-    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
-    document.querySelector('.player-' + activePlayer + '-panel').classList.toggle('active');
+    nextPlayer();
 }
 
 document.querySelector('#current-' + activePlayer).textContent = roundScore;
@@ -58,8 +55,17 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
 // 1. Transfer round score to the general score
 score[activePlayer] += roundScore;
 document.querySelector('#score-' + activePlayer).textContent = score[activePlayer];
+nextPlayer();
 
 
 });
 
 
+function nextPlayer() {
+
+    document.querySelector('#current-' + activePlayer).textContent = roundScore = 0;
+    document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+    document.querySelector('.player-' + activePlayer + '-panel').classList.toggle('active');
+
+}

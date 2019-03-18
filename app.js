@@ -22,6 +22,9 @@ document.getElementById('current-1').textContent = '0';
 
 document.querySelector('.dice').style.display = 'none';
 
+// **********************
+// *    BUTTON ROLL     *
+// **********************
 document.querySelector('.btn-roll').addEventListener('click', function() {
 
 //1. Random number
@@ -33,7 +36,7 @@ diceDOM.style.display = 'block';
 diceDOM.src = 'dice-' + dice + '.png';
 
 
-//3. Add result to score
+//3. Add result to current score
 if (dice > 1) {
     roundScore += dice;
 } else {
@@ -45,3 +48,18 @@ if (dice > 1) {
 
 document.querySelector('#current-' + activePlayer).textContent = roundScore;
 });
+
+// **********************
+// *    BUTTON HOLD     *
+// **********************
+
+document.querySelector('.btn-hold').addEventListener('click', function() {
+
+// 1. Transfer round score to the general score
+score[activePlayer] += roundScore;
+document.querySelector('#score-' + activePlayer).textContent = score[activePlayer];
+
+
+});
+
+

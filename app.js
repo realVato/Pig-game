@@ -32,6 +32,7 @@ diceDOM.src = 'dice-' + dice + '.png';
 if (dice > 1) {
     roundScore += dice;
 } else {
+    document.querySelector('#current-' + activePlayer).textContent = roundScore = 0;
     document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
     activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
     document.querySelector('.player-' + activePlayer + '-panel').classList.toggle('active');

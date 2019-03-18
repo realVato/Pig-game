@@ -58,13 +58,22 @@ if (score[activePlayer] >= 20) {
 
 });
 
+// **********************
+// *  BUTTON NEW GAME   *
+// **********************
+
+document.querySelector('.btn-new').addEventListener('click', function() {
+
+init();
+
+});
 
 function nextPlayer() {
 
     document.getElementById('current-' + activePlayer).textContent = roundScore = 0;
     document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
     activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
-    document.querySelector('.player-' + activePlayer + '-panel').classList.toggle('active');
+    document.querySelector('.player-' + activePlayer + '-panel').classList.add('active');
     diceDisplay();
 
 }
@@ -79,6 +88,13 @@ function init() {
     document.getElementById('score-1').textContent = '0';
     document.getElementById('current-0').textContent = '0';
     document.getElementById('current-1').textContent = '0';
+    document.querySelector('.btn-roll').style.display = 'block';
+    document.querySelector('.btn-hold').style.display = 'block';
+    document.querySelector('.player-0-panel').classList.remove('active');
+    document.querySelector('.player-0-panel').classList.add('active');
+    document.querySelector('.player-1-panel').classList.remove('active');
+    document.getElementById('name-0').textContent = 'Player 1';
+    document.getElementById('name-1').textContent = 'Player 2';
     diceDisplay();
 }
 
